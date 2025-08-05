@@ -1,0 +1,46 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutomateAce Admin - Form Submissions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>AutomateAce Form Submissions</h1>
+    <div id="submissions"></div>
+
+    <script>
+        async function loadSubmissions() {
+            try {
+                const response = await fetch('/api/submissions');
+                const data = await response.json();
+                
+                let html = '<table><tr><th>Date</th><th>Name</th><th>Email</th><th>Service</th><th>Message</th></tr>';
+                
+                data.forEach(submission => {
+                    html += `<tr>
+                        <td>${new Date(submission.created_at).toLocaleDateString()}</td>
+                        <td>${submission.name}</td>
+                        <td>${submission.email}</td>
+                        <td>${submission.service_type}</td>
+                        <td>${submission.message || 'None'}</td>
+                    </tr>`;
+                });
+                
+                html += '</table>';
+                document.getElementById('submissions').innerHTML = html;
+                
+            } catch (error) {
+                document.getElementById('submissions').innerHTML = 'Error loading submissions';
+            }
+        }
+        
+        loadSubmissions();
+    </script>
+</body>
+</html>
