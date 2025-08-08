@@ -50,31 +50,37 @@
       <div class="particle"></div>
     </div>
 
-    <!-- Navigation -->
-<nav class="navbar">
-  <div class="container">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-           AutomateAce<img src="logo.jpg" alt="AutomateAce Logo" class="logo-icon">
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="workdone.html">Our Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a
+<!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="logo.jpg" alt="AutomateAce" class="logo-icon">
+                    AutomateAce
+                </a>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="workdone.html">Our Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a
             href="#"
             class="nav-cta"
             onclick="openGetStartedModal(); return false;"
-            >Get Started</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+            >Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
     <!-- Hero Section with Ultimate Animated AI Chatbot Reel -->
     <section id="home" class="hero">
@@ -1452,6 +1458,52 @@
             }
         `;
       document.head.appendChild(alertStyles);
+
+      // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on links
+                const navItems = document.querySelectorAll('.nav-links a');
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Enhanced smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
   </body>
 </html>
