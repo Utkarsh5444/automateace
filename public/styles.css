@@ -2246,3 +2246,294 @@
     overflow-x: hidden;
   }
 }
+/* Mobile Responsive Fixes for Services Section - COMPLETE FIX */
+@media (max-width: 768px) {
+  .services {
+    padding: 80px 0;
+    position: relative;
+    overflow: visible; /* Allow content to flow naturally */
+    min-height: auto; /* Don't force height */
+  }
+
+  .services .container {
+    padding: 0 20px;
+    max-width: 100%;
+    overflow: visible; /* Remove any overflow restrictions */
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-badge {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    word-wrap: break-word;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    padding: 0 10px;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+    word-wrap: break-word;
+  }
+
+  .services-grid {
+    display: flex; /* Change from grid to flex for better mobile control */
+    flex-direction: column;
+    gap: 30px;
+    padding: 0;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 32px 24px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    min-height: auto; /* Remove fixed heights */
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.6rem;
+    margin: 0 auto 8px;
+    flex-shrink: 0;
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.2;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    text-align: center;
+    word-wrap: break-word;
+    flex-grow: 1; /* Allow text to expand */
+  }
+
+  .service-features {
+    text-align: left;
+    margin-bottom: 28px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    list-style: none;
+  }
+
+  .service-features li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .service-features li::before {
+    content: "✓";
+    color: #ffeb3b;
+    font-weight: 900;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .service-card .btn {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 60px 0;
+  }
+
+  .services .container {
+    padding: 0 15px;
+  }
+
+  .section-header {
+    margin-bottom: 50px;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    padding: 0 5px;
+  }
+
+  .services-grid {
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .service-card {
+    padding: 28px 20px;
+  }
+
+  .service-header {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .service-features {
+    margin-bottom: 24px;
+    padding: 0 5px;
+  }
+
+  .service-features li {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .service-card .btn {
+    font-size: 15px;
+    padding: 14px 20px;
+    max-width: 200px;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .services {
+    padding: 50px 0;
+  }
+
+  .services .container {
+    padding: 0 10px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .service-card {
+    padding: 24px 16px;
+  }
+
+  .service-card .btn {
+    font-size: 14px;
+    padding: 12px 18px;
+    max-width: 180px;
+  }
+}
+
+/* Additional fixes to prevent sticking issues */
+@media (max-width: 768px) {
+  /* Remove any transform or position fixed that might cause issues */
+  .services * {
+    transform: none !important;
+  }
+
+  /* Ensure proper document flow */
+  .services,
+  .services .container,
+  .services-grid,
+  .service-card {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Fix for touch scrolling on iOS */
+  .services {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: visible;
+  }
+
+  /* Ensure content doesn't get cut off */
+  .service-card {
+    margin-bottom: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Remove any fixed heights that might cause issues */
+  .services-grid {
+    min-height: auto !important;
+    height: auto !important;
+  }
+}
+
+/* Fix for Safari mobile issues */
+@media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .services {
+    transform: translateZ(0); /* Force hardware acceleration */
+    backface-visibility: hidden;
+  }
+  
+  .service-card {
+    will-change: auto; /* Remove will-change if present */
+  }
+}
